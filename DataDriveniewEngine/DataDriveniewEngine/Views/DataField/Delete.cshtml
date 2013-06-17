@@ -1,0 +1,47 @@
+﻿@model DataDrivenViewEngine.Models.Core.DataField
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>DataField</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FieldName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FieldName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DisplayLabel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisplayLabel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsMandatory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsMandatory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ParentForm.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentForm.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

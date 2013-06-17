@@ -1,0 +1,43 @@
+﻿@model DataDrivenViewEngine.Models.Core.DataField
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DataField</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FieldName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FieldName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DisplayLabel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisplayLabel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsMandatory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsMandatory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ParentForm.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentForm.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

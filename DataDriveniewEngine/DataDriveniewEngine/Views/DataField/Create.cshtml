@@ -1,0 +1,69 @@
+﻿@model DataDrivenViewEngine.Models.Core.DataField
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DataField</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FieldName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FieldName)
+            @Html.ValidationMessageFor(model => model.FieldName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayLabel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayLabel)
+            @Html.ValidationMessageFor(model => model.DisplayLabel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DisplayType", (SelectList)ViewBag.FieldTypes, new { id = "DisplayType", name = "DisplayType" })
+            @Html.ValidationMessageFor(model => model.DisplayType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsMandatory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsMandatory)
+            @Html.ValidationMessageFor(model => model.IsMandatory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FormId, "ParentForm")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("FormId", String.Empty)
+            @Html.ValidationMessageFor(model => model.FormId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
